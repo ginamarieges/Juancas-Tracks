@@ -1,4 +1,4 @@
-import CustomError from "../../CustomError/CustomError";
+import CustomError from "../../CustomError/CustomError.js";
 import type ErrorMessagesStructure from "./types";
 
 const errorMessages: ErrorMessagesStructure = {
