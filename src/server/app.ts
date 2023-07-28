@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
+import { paths } from "./paths/paths.js";
+import { pingController } from "./controllers/pingController/pingController.js";
 
 export const app = express();
 
@@ -15,3 +17,5 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 app.disable("x-powered-by");
+
+app.get(paths.root, pingController);
