@@ -1,6 +1,10 @@
 import { type Request, type Response } from "express";
 import { pingController } from "./pingController";
 
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 describe("Given a pingController controller", () => {
   const req = {};
   const res: Partial<Response> = {
@@ -18,7 +22,7 @@ describe("Given a pingController controller", () => {
     });
 
     test("Then it should call the response method json with 'Pong'", () => {
-      const expectedMessage = /pong/i;
+      const expectedMessage = "Pong";
 
       pingController(req as Request, res as Response);
 
