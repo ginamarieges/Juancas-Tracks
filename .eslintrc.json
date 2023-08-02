@@ -11,7 +11,16 @@
       "rules": {
         "no-unused-vars": "error",
         "no-console": "error",
-        "@typescript-eslint/consistent-type-definitions": ["error", "interface"]
+        "@typescript-eslint/consistent-type-definitions": [
+          "error",
+          "interface"
+        ],
+        "new-cap": [
+          "error",
+          {
+            "capIsNewExceptions": ["Router"]
+          }
+        ]
       }
     },
     {

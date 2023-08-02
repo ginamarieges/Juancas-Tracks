@@ -1,8 +1,8 @@
 import { type NextFunction, type Response } from "express";
 import bcrypt from "bcryptjs";
-import { type CustomRequest } from "./types";
-import { User } from "../../../database/models/User";
-import errorMessages from "../../../utils/errorMessages/errorMessages";
+import { type CustomRequest } from "./types.js";
+import { User } from "../../../database/models/User.js";
+import errorMessages from "../../../utils/errorMessages/errorMessages.js";
 
 export const registerUser = async (
   req: CustomRequest,
@@ -16,7 +16,7 @@ export const registerUser = async (
       name,
       lastname,
       username,
-      password: bcrypt.hash(password, 10),
+      password: await bcrypt.hash(password, 10),
     });
 
     if (!newUser) {
