@@ -7,6 +7,7 @@ import {
   generalError,
   notFoundError,
 } from "./middlewares/errorMiddlewares/errorMiddlewares.js";
+import userRouter from "./routers/users/userRouter.js";
 
 export const app = express();
 
@@ -23,6 +24,8 @@ app.use(morgan("dev"));
 app.disable("x-powered-by");
 
 app.get(paths.ping, pingController);
+
+app.use(paths.user, userRouter);
 
 app.use(notFoundError);
 
