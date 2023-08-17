@@ -11,7 +11,10 @@ import userRouter from "./routers/users/userRouter.js";
 
 export const app = express();
 
-const allowedOrigins = [process.env.ALLOWED_ORIGIN_DEV!];
+const allowedOrigins = [
+  process.env.ALLOWED_ORIGIN_DEV!,
+  process.env.ALLOWED_ORIGIN_PROD!,
+];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
