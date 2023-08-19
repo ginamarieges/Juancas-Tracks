@@ -1,5 +1,6 @@
 import "../../../loadEnvironment.js";
 import createDebug from "debug";
+import { ValidationError } from "express-validation";
 import { type NextFunction, type Request, type Response } from "express";
 import type CustomError from "../../../CustomError/CustomError";
 import errorMessages from "../../../utils/errorMessages/errorMessages.js";
@@ -14,6 +15,16 @@ export const generalError = (
   res: Response,
   _next: NextFunction,
 ) => {
+  if (error instanceof ValidationError && error.details.body) {
+    const validationError = error.details.body
+      .map((joiError) => joiError.message)
+      .join(" & ")
+      .replaceAll("'", "");
+
+    (error as CustomError).publicMessage = validationError;
+    debug(validationError);
+  }
+
   debug(error.message);
 
   const statusCode = error.statusCode || 500;
