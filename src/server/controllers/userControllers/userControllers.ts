@@ -1,7 +1,7 @@
 import { type NextFunction, type Response } from "express";
 import jwt, { type JwtPayload } from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import { type CustomRequest } from "./types.js";
+import { type CustomRequestLogin, type CustomRequest } from "./types.js";
 import { User } from "../../../database/models/User.js";
 import errorMessages from "../../../utils/errorMessages/errorMessages.js";
 
@@ -31,7 +31,7 @@ export const registerUser = async (
 };
 
 export const loginUser = async (
-  req: CustomRequest,
+  req: CustomRequestLogin,
   res: Response,
   next: NextFunction,
 ) => {
