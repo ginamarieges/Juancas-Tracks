@@ -9,6 +9,6 @@ const userRouter = Router();
 
 userRouter.post(paths.register, registerUser);
 
-userRouter.get(paths.login, loginUser);
+userRouter.post(paths.login, loginUser);
 
 export default userRouter;
