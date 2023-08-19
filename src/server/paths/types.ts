@@ -3,4 +3,5 @@ export interface PathsStructure {
   ping: string;
   user: string;
   register: string;
+  login: string;
 }
