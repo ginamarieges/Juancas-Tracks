@@ -7,9 +7,13 @@ import errorMessages from "../../../utils/errorMessages/errorMessages.js";
 const debug = createDebug(
   "juancas-tracks-api:server:controllers:tracksControllers:tracksControllers.js",
 );
-export const getTracks = (req: Request, res: Response, next: NextFunction) => {
+export const getTracks = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   try {
-    const tracks = Track.find().limit(10).exec();
+    const tracks = await Track.find().limit(10).exec();
 
     res.status(200).json({ tracks });
   } catch (error) {
