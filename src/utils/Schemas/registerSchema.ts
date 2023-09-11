@@ -6,7 +6,7 @@ const registerSchema = {
     lastname: Joi.string().required(),
     name: Joi.string().required(),
     password: Joi.string().required(),
-    username: Joi.string().required(),
+    username: Joi.string().required().min(5).max(12),
   }),
 };
 
