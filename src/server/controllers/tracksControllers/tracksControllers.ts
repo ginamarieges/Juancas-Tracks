@@ -1,5 +1,5 @@
-import { type NextFunction, type Request, type Response } from "express";
 import "../../../loadEnvironment.js";
+import { type NextFunction, type Request, type Response } from "express";
 import createDebug from "debug";
 import { Track } from "../../../database/models/Track.js";
 import errorMessages from "../../../utils/errorMessages/errorMessages.js";

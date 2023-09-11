@@ -8,6 +8,7 @@ import {
   notFoundError,
 } from "./middlewares/errorMiddlewares/errorMiddlewares.js";
 import userRouter from "./routers/users/userRouter.js";
+import tracksRouter from "./routers/tracks/tracksRouter.js";
 
 export const app = express();
 
@@ -29,6 +30,8 @@ app.disable("x-powered-by");
 app.get(paths.ping, pingController);
 
 app.use(paths.user, userRouter);
+
+app.use(paths.tracks, tracksRouter);
 
 app.use(notFoundError);
 
