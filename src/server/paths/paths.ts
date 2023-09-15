@@ -6,4 +6,5 @@ export const paths: PathsStructure = {
   user: "/user",
   register: "/register",
   login: "/login",
+  tracks: "/tracks",
 };

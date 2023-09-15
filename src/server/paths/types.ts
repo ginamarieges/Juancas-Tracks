@@ -4,4 +4,5 @@ export interface PathsStructure {
   user: string;
   register: string;
   login: string;
+  tracks: string;
 }
